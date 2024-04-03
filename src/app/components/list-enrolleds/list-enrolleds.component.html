@@ -1,1 +1,44 @@
-<p>list-enrolleds works!</p>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo">LISTADO DE INSCRIPTOS</span>
+                    <button class="btn btn-success float-end" routerLink="/create-enrolled">
+                        NUEVO
+                    </button>
+                    <table *ngIf="listEnrolleds.length > 0" class="table table-striped mt-2">
+                        <thead>
+                            <tr>
+                                <th scoope="col">Nombre</th>
+                                <th scoope="col">Apellido</th>
+                                <th scoope="col">Fecha de Nacimiento</th>
+                                <th scoope="col">Celular</th>
+                                <th scoope="col">Celula</th>
+                                <th scoope="col">Anexo</th>
+                                <th scoope="col">Invitado</th>
+                                <th scoope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let enrolled of listEnrolleds">
+                                <td>{{ enrolled.name }}</td>
+                                <td>{{ enrolled.lastName }}</td>
+                                <td>{{ enrolled.birthDate }}</td>
+                                <td>{{ enrolled.cellphone }}</td>
+                                <td>{{ enrolled.cellule }}</td>
+                                <td>{{ enrolled.annex }}</td>
+                                <td>{{ enrolled.guest }}</td>
+                                <td>
+                                    <i [routerLink]="['/edit-enrolled', enrolled._id]" class="fa-solid fa-pen-to-square text-primary"></i>
+                                    <i (click)="eliminarInscripto(enrolled._id)" class="fa-solid fa-trash text-danger"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h5 style="text-align: start; margin-top: 10px;" *ngIf="listEnrolleds.length == 0">No hay inscriptos para mostrar</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

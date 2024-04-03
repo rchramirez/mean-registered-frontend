@@ -1,1 +1,54 @@
-<p>create-enrolled works!</p>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo"> {{ titulo | uppercase }} </span>
+                    <form class="mt-3" [formGroup]="enrolledForm" (ngSubmit)="addEnrolled()">
+                        <div class="form-floating mb-3">
+                            <input type="text" formControlName="name" class="form-control form-control-lg" placeholder="Nombre">
+                            <label for="floatingInput">Nombre</label>
+                            <div class="text-danger" *ngIf="enrolledForm.get('name')?.hasError('required') && enrolledForm.get('name')?.touched">
+                                <span>El nombre del nuevo inscripto <strong>es obligatorio</strong></span>
+                            </div>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" formControlName="lastName" class="form-control form-control-lg" placeholder="Apellido">
+                            <label for="floatingInput">Apellido</label>
+                            <div class="text-danger" *ngIf="enrolledForm.get('lastName')?.hasError('required') && enrolledForm.get('lastName')?.touched">
+                                <span>El apellido del nuevo inscripto <strong>es obligatorio</strong></span>
+                            </div>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" formControlName="birthDate" class="form-control form-control-lg" placeholder="Fecha de Nacimiento">
+                            <label for="floatingInput">Fecha de Nacimiento</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" formControlName="cellphone" class="form-control form-control-lg" placeholder="Telefono Celular">
+                            <label for="floatingInput">Telefono Celular</label>
+                            <div class="text-danger" *ngIf="enrolledForm.get('cellphone')?.hasError('required') && enrolledForm.get('cellphone')?.touched">
+                                <span>El celular de contacto <strong>es obligatorio</strong></span>
+                            </div>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" formControlName="cellule" class="form-control form-control-lg" placeholder="Grupo Celular">
+                            <label for="floatingInput">Grupo Celular</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" formControlName="annex" class="form-control form-control-lg" placeholder="Anexo">
+                            <label for="floatingInput">Anexo</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" formControlName="guest" class="form-control form-control-lg" placeholder="Invitado por">
+                            <label for="floatingInput">Invitado por</label>
+                        </div>
+                        <div class="mb-3">
+                            <button routerLink="/" class="btn btn-secondary btn-lg float-start">VOLVER</button>
+                            <button type="submit" class="btn btn-success btn-lg float-end">ACEPTAR</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
