@@ -26,8 +26,7 @@ export class CreateEnrolledComponent {
       birthDate: ['', Validators.required],
       cellphone: ['', Validators.required],
       cellule: ['', Validators.required],
-      annex: ['', Validators.required],
-      guest: ['', Validators.required]
+      annex: ['', Validators.required]
     });
     this.id = this.aRouter.snapshot.paramMap.get('id');
     this.isEdit();
@@ -40,13 +39,13 @@ export class CreateEnrolledComponent {
       name: this.enrolledForm.get('name')?.value,
       lastName: this.enrolledForm.get('lastName')?.value,
       birthDate: this.enrolledForm.get('birthDate')?.value,
+      age: this.enrolledForm.get('age')?.value,
       cellphone: this.enrolledForm.get('cellphone')?.value,
       cellule: this.enrolledForm.get('cellule')?.value,
       annex: this.enrolledForm.get('annex')?.value,
       guest: this.enrolledForm.get('guest')?.value,
+      busNumber: this.enrolledForm.get('busNumber')?.value,
     }
-
-    console.log("MI ID " + this.id);
 
     if (this.id !== null) {
       this._enrolledService.editEnrolled(this.id, ENROLLED).subscribe(data => {
@@ -78,6 +77,7 @@ export class CreateEnrolledComponent {
           cellule: data.cellule,
           annex: data.annex,
           guest: data.guest,
+          busNumber: data.busNumber,
         })
       })
     }

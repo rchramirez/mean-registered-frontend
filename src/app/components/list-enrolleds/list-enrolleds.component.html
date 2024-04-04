@@ -12,11 +12,12 @@
                             <tr>
                                 <th scoope="col">Nombre</th>
                                 <th scoope="col">Apellido</th>
-                                <th scoope="col">Fecha de Nacimiento</th>
+                                <th scoope="col">Edad</th>
                                 <th scoope="col">Celular</th>
                                 <th scoope="col">Celula</th>
                                 <th scoope="col">Anexo</th>
                                 <th scoope="col">Invitado</th>
+                                <th scoope="col">#Bus</th>
                                 <th scoope="col"></th>
                             </tr>
                         </thead>
@@ -24,11 +25,12 @@
                             <tr *ngFor="let enrolled of listEnrolleds">
                                 <td>{{ enrolled.name }}</td>
                                 <td>{{ enrolled.lastName }}</td>
-                                <td>{{ enrolled.birthDate }}</td>
+                                <td>{{ enrolled.age }}</td>
                                 <td>{{ enrolled.cellphone }}</td>
                                 <td>{{ enrolled.cellule }}</td>
                                 <td>{{ enrolled.annex }}</td>
                                 <td>{{ enrolled.guest }}</td>
+                                <td>{{ enrolled.busNumber }}</td>
                                 <td>
                                     <i [routerLink]="['/edit-enrolled', enrolled._id]" class="fa-solid fa-pen-to-square text-primary"></i>
                                     <i (click)="eliminarInscripto(enrolled._id)" class="fa-solid fa-trash text-danger"></i>
